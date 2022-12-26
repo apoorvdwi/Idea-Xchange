@@ -1,3 +1,42 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "airbnb",
+    "next/core-web-vitals",
+    "plugin:prettier/recommended",
+    "plugin:@next/next/recommended"
+  ],
+  "plugins": ["simple-import-sort"],
+  "rules": {
+    "no-unused-vars": "off",
+    "jsx-a11y/label-has-associated-control": "off",
+    "@next/next/no-img-element": "off",
+    "array-element-newline": ["error", "consistent"],
+    "no-param-reassign": [
+      "error",
+      { "props": true, "ignorePropertyModificationsFor": ["draft", "state"] }
+    ],
+    "react/jsx-props-no-spreading": "off",
+    "react/no-unescaped-entities": "off",
+    "import/no-named-default": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "error",
+      {
+        "components": ["Link"],
+        "specialLink": ["hrefLeft", "hrefRight"],
+        "aspects": ["invalidHref", "preferButton"]
+      }
+    ],
+    "no-nested-ternary": "off",
+    "prettier/prettier": ["error", {}, { "usePrettierrc": true }],
+    "prefer-arrow-callback": [2, { "allowNamedFunctions": true }],
+    "react/function-component-definition": [
+      2,
+      { "namedComponents": "arrow-function" }
+    ],
+    "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
+    "react/prop-types": "off",
+    "simple-import-sort/exports": "error",
+    "simple-import-sort/imports": "error",
+    "react/jsx-no-constructed-context-values": "off"
+  }
 }
