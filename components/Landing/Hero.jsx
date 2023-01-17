@@ -1,8 +1,10 @@
 import { Box, Button, Flex, Image } from '@chakra-ui/react';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import { MdOutlineExplore } from 'react-icons/md';
 
 const Hero = () => {
+  const router = useRouter();
+
   return (
     <Flex
       mx={['8', '12', '20', '36', '52']}
@@ -35,16 +37,15 @@ const Hero = () => {
           people to comment over the idea.
         </Flex>
 
-        <Link href='/explore' passHref>
-          <Button
-            w='fit-content'
-            mt={['8', '10', '12', '12', '14']}
-            fontSize={['small', 'lg']}
-          >
-            <MdOutlineExplore size='24px' style={{ marginRight: '10px' }} />
-            Explore Ideas
-          </Button>
-        </Link>
+        <Button
+          onClick={() => router.push('/explore')}
+          w='fit-content'
+          mt={['8', '10', '12', '12', '14']}
+          fontSize={['small', 'lg']}
+        >
+          <MdOutlineExplore size='24px' style={{ marginRight: '10px' }} />
+          Explore Ideas
+        </Button>
       </Flex>
       <Image
         src='/images/hero.svg'

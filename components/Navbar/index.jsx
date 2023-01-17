@@ -9,14 +9,11 @@ import {
   DrawerOverlay,
   Flex,
   IconButton,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuList,
   Text,
   useDisclosure,
 } from '@chakra-ui/react';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
 import { FiLogOut, FiShare } from 'react-icons/fi';
 import { GiHamburgerMenu } from 'react-icons/gi';
@@ -24,9 +21,9 @@ import { GiHamburgerMenu } from 'react-icons/gi';
 import { useGlobalContext } from '../../context';
 import TopBorder from '../Landing/TopBorder';
 import Logo from './Logo';
-import Profile from './Profile';
 
 const Navbar = () => {
+  const router = useRouter();
   const [sticky, setSticky] = useState('');
   const { isOpen, onOpen, onClose } = useDisclosure();
   const { logout, loginWithGoogle, user } = useGlobalContext();
@@ -72,17 +69,33 @@ const Navbar = () => {
               </Text>
             </Link>
           )}
-          <Link href='/explore'>
-            <Text
-              ml={['1', '4', '4', '8', '12']}
-              fontWeight='bold'
-              cursor='pointer'
-              fontSize='18px'
-              _hover={{ color: 'brand.550' }}
-            >
-              Explore
-            </Text>
-          </Link>
+          {((router.pathname !== '/' && router.pathname !== '/explore') ||
+            !user) && (
+            <Link href='/explore'>
+              <Text
+                ml={['1', '4', '4', '8', '12']}
+                fontWeight='bold'
+                cursor='pointer'
+                fontSize='18px'
+                _hover={{ color: 'brand.550' }}
+              >
+                Explore
+              </Text>
+            </Link>
+          )}
+          {user && (
+            <Link href='/new-post'>
+              <Text
+                ml={['1', '4', '4', '8', '12']}
+                fontWeight='bold'
+                cursor='pointer'
+                fontSize='18px'
+                _hover={{ color: 'brand.550' }}
+              >
+                Share Idea
+              </Text>
+            </Link>
+          )}
           {!user ? (
             <Button onClick={loginWithGoogle} ml={['1', '4', '4', '8', '12']}>
               <Flex align='center' justify='center'>

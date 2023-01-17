@@ -1,8 +1,7 @@
-import { Flex, Image } from '@chakra-ui/react';
+import { Flex } from '@chakra-ui/react';
 
 import About from '../components/Landing/About';
 import Footer from '../components/Landing/Footer';
-import FutureScopeCard from '../components/Landing/FutureScopeCard';
 import Hero from '../components/Landing/Hero';
 import ProcessBlock from '../components/Landing/ProcessBlock';
 
@@ -27,8 +26,8 @@ const Home = () => (
       <ProcessBlock
         flexD='row-reverse'
         imageSrc='/images/validate.svg'
-        animatedHead='Validate your'
-        nonAnimatedHead=' Idea'
+        animatedHead='Validate'
+        nonAnimatedHead=' Your Idea'
         content='pellentesque dignissim enim sit amet venenatis urna cursus eget nunc scelerisque viverra mauris in aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque in dictum non consectetur a erat nam'
       />
     </Flex>

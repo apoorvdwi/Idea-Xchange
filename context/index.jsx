@@ -1,10 +1,11 @@
-import { Account, Client } from 'appwrite';
+import { Account, Client, Databases } from 'appwrite';
 import React, { createContext, useContext, useEffect, useState } from 'react';
 
 const client = new Client();
 client.setEndpoint('http://localhost/v1').setProject('63a8722ba45bd482934c');
 
 const account = new Account(client);
+const databases = new Databases(client);
 
 const GlobalContext = createContext();
 
@@ -46,6 +47,7 @@ export const GlobalProvider = ({ children }) => {
 
   const contextProps = {
     user,
+    databases,
     setUser,
     loading,
     setLoading,
