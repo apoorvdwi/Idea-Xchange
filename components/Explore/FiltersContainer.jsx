@@ -1,5 +1,6 @@
 import { Box, Button, Flex, Text } from '@chakra-ui/react';
 import { Select } from 'chakra-react-select';
+import { useRouter } from 'next/navigation';
 import { BsSuitHeartFill } from 'react-icons/bs';
 import { FaFilter } from 'react-icons/fa';
 import { FiShare } from 'react-icons/fi';
@@ -7,7 +8,9 @@ import { GiReceiveMoney } from 'react-icons/gi';
 import { SiClockify } from 'react-icons/si';
 import { TbArrowsSort } from 'react-icons/tb';
 
-const FiltersContainer = () => {
+const FiltersContainer = ({ filters, setFilters }) => {
+  const router = useRouter();
+
   return (
     <Flex
       mt='7'
@@ -20,6 +23,7 @@ const FiltersContainer = () => {
       w='18%'
     >
       <Button
+        onClick={() => router.push('/new-post')}
         bg='brand.200'
         color='brand.900'
         py='3'
@@ -36,11 +40,14 @@ const FiltersContainer = () => {
         <TbArrowsSort size='20' />
       </Flex>
       <Button
-        bg='#f6edfe'
-        _hover={{ bg: 'brand.200' }}
+        bg={filters.sort === 'Latest' ? 'brand.900' : '#f6edfe'}
+        _hover={filters.sort === 'Latest' ? {} : { bg: 'brand.200' }}
+        color={filters.sort === 'Latest' ? '#fff' : 'brand.900'}
+        onClick={() => {
+          setFilters((prev) => ({ ...prev, sort: 'Latest' }));
+        }}
         py='3'
         height='fit-content'
-        color='brand.900'
         justifyContent='left'
         mt='3'
         w='full'
@@ -51,9 +58,12 @@ const FiltersContainer = () => {
       <Button
         py='3'
         height='fit-content'
-        bg='#f6edfe'
-        _hover={{ bg: 'brand.200' }}
-        color='brand.900'
+        bg={filters.sort === 'Likes' ? 'brand.900' : '#f6edfe'}
+        _hover={filters.sort === 'Likes' ? {} : { bg: 'brand.200' }}
+        color={filters.sort === 'Likes' ? '#fff' : 'brand.900'}
+        onClick={() => {
+          setFilters((prev) => ({ ...prev, sort: 'Likes' }));
+        }}
         justifyContent='left'
         mt='3'
         w='full'
@@ -64,9 +74,12 @@ const FiltersContainer = () => {
       <Button
         py='3'
         height='fit-content'
-        bg='#f6edfe'
-        _hover={{ bg: 'brand.200' }}
-        color='brand.900'
+        bg={filters.sort === 'Money' ? 'brand.900' : '#f6edfe'}
+        _hover={filters.sort === 'Money' ? {} : { bg: 'brand.200' }}
+        color={filters.sort === 'Money' ? '#fff' : 'brand.900'}
+        onClick={() => {
+          setFilters((prev) => ({ ...prev, sort: 'Money' }));
+        }}
         justifyContent='left'
         mt='3'
         w='full'
@@ -110,7 +123,9 @@ const FiltersContainer = () => {
         variant='filled'
         selectedOptionColor='purple'
         useBasicStyles
-        closeMenuOnSelect={false}
+        closeMenuOnSelect
+        value={{ label: filters.category, value: filters.category }}
+        onChange={(e) => setFilters((prev) => ({ ...prev, category: e.value }))}
         options={[
           'All',
           'Producitivity',

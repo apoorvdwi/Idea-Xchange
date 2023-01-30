@@ -16,7 +16,7 @@ const randomstring = require('randomstring');
 const NewPost = () => {
   const toast = useToast();
   const [idea, setIdea] = useState('');
-  const [category, setCategory] = useState({ label: 'All', value: 'All' });
+  const [category, setCategory] = useState({ label: 'Tech', value: 'Tech' });
   const [loading, setLoading] = useState(false);
   const { user, databases } = useGlobalContext();
 
@@ -187,7 +187,6 @@ const NewPost = () => {
           value={category}
           onChange={(e) => setCategory(e)}
           options={[
-            'All',
             'Producitivity',
             'Social',
             'Tech',

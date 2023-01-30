@@ -15,7 +15,7 @@ import {
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useEffect, useState } from 'react';
-import { FiLogOut, FiShare } from 'react-icons/fi';
+import { FiLogIn, FiLogOut, FiShare } from 'react-icons/fi';
 import { GiHamburgerMenu } from 'react-icons/gi';
 
 import { useGlobalContext } from '../../context';
@@ -56,7 +56,7 @@ const Navbar = () => {
         <Logo />
 
         <Flex alignItems='center' display={['none', 'none', 'flex']} ml='auto'>
-          {user && (
+          {user && router.pathname !== '/my-ideas' && (
             <Link href='/my-ideas'>
               <Text
                 ml={['1', '4', '4', '8', '12']}
@@ -83,7 +83,7 @@ const Navbar = () => {
               </Text>
             </Link>
           )}
-          {user && (
+          {user && router.pathname !== '/new-post' && (
             <Link href='/new-post'>
               <Text
                 ml={['1', '4', '4', '8', '12']}
@@ -99,8 +99,8 @@ const Navbar = () => {
           {!user ? (
             <Button onClick={loginWithGoogle} ml={['1', '4', '4', '8', '12']}>
               <Flex align='center' justify='center'>
-                <FiShare style={{ marginRight: '10px' }} />
-                Share Idea
+                <FiLogIn style={{ marginRight: '10px' }} />
+                Login
               </Flex>
             </Button>
           ) : (
