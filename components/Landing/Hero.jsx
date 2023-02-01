@@ -34,7 +34,7 @@ const Hero = () => {
         >
           Find the idea for your next project/startup posted by people all over
           the world. Alternatively, post your idea over the platform and allow
-          people to comment over the idea.
+          people to comment on the idea.
         </Flex>
 
         <Button
