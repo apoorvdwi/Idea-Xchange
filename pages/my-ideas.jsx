@@ -1,4 +1,4 @@
-import { Box, Flex, Spinner } from '@chakra-ui/react';
+import { Box, Flex, Spinner, Text } from '@chakra-ui/react';
 import { Query } from 'appwrite';
 import moment from 'moment';
 import { useEffect, useState } from 'react';
@@ -57,17 +57,32 @@ const Explore = () => {
         }));
         setData(modifiedData);
         setLoading(false);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [databases, filters, user]);
 
   return data && !loading ? (
     <Flex justifyContent='left' position='relative' margin='auto' width='75%'>
       <FiltersContainer filters={filters} setFilters={setFilters} />
-      <Box marginLeft='auto' width='73.8%'>
-        {data.map((item, index) => (
-          <IdeaContainer {...item} key={item.id} noShow />
-        ))}
-      </Box>
+      {data.length > 0 ? (
+        <Box marginLeft='auto' width='73.8%'>
+          {data.map((item, index) => (
+            <IdeaContainer {...item} key={item.id} noShow />
+          ))}
+        </Box>
+      ) : (
+        <Flex
+          marginLeft='auto'
+          width='73.8%'
+          h='85vh'
+          alignItems='center'
+          justifyContent='center'
+          flexDir='column'
+        >
+          <img src='/images/noData.svg' alt='no data' width='200px' />
+          <Text mt='3'>No Ideas Found!! Mind adding some :&#41;</Text>
+        </Flex>
+      )}
     </Flex>
   ) : (
     <Flex alignItems='center' justifyContent='center' w='100%' h='88.8vh'>

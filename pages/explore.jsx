@@ -45,7 +45,8 @@ const Explore = () => {
                 : (res.likesCount || 0) + 1,
           },
         );
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   const handlePay = (id, action) => {
@@ -71,7 +72,8 @@ const Explore = () => {
                 : (res.payCount || 0) + 1,
           },
         );
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -102,7 +104,8 @@ const Explore = () => {
         }));
         setData(modifiedData);
         setLoading(false);
-      });
+      })
+      .catch((err) => console.log(err));
   }, [databases, filters]);
 
   return data && !loading ? (

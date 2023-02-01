@@ -19,7 +19,6 @@ export const GlobalProvider = ({ children }) => {
     account
       .get()
       .then((data) => {
-        console.log(data);
         if (data) {
           setUser(data);
         }

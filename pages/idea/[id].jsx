@@ -36,7 +36,6 @@ const IdeaPage = () => {
       )
       .then((res) => {
         const newComments = [JSON.stringify(commentObj), ...res.comments];
-        console.log(newComments);
         setComments(
           newComments
             .map((item) => JSON.parse(item))
@@ -61,7 +60,8 @@ const IdeaPage = () => {
           });
         }
         setInput('');
-      });
+      })
+      .catch((err) => console.log(err));
   };
 
   useEffect(() => {
@@ -89,7 +89,15 @@ const IdeaPage = () => {
                 .sort((a, b) => moment(b.timestamp).diff(a.timestamp)),
             );
             setLoading(false);
+          })
+          .catch((err) => {
+            setLoading(false);
+            console.log(err);
           });
+      })
+      .catch((err) => {
+        setLoading(false);
+        console.log(err);
       });
   }, [id]);
 
