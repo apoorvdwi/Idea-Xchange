@@ -30,16 +30,12 @@ const ProcessBlock = ({
       <Box
         fontSize={['lg', 'xl', '2xl']}
         fontWeight='bold'
-        textAlign={['center', 'center', 'left']}
+        textAlign={['justify']}
       >
         <span className='highlight'>{animatedHead}</span>
         {nonAnimatedHead}
       </Box>
-      <Box
-        fontSize={['sm', 'md']}
-        my={['4', '6', '8']}
-        textAlign={['center', 'center', 'left']}
-      >
+      <Box fontSize={['sm', 'md']} my={['4', '6', '8']} textAlign={['justify']}>
         {content}
       </Box>
       <TopBorder borderH='0.35rem' />

@@ -30,7 +30,7 @@ const Hero = () => {
         <Flex
           fontSize={['small', 'md', 'lg', 'xl']}
           mt={['8', '10', '12', '10']}
-          textAlign={['center', 'center', 'left']}
+          textAlign={['justify']}
         >
           Find the idea for your next project/startup posted by people all over
           the world. Alternatively, post your idea over the platform and allow
@@ -51,6 +51,7 @@ const Hero = () => {
         src='/images/hero.svg'
         alt='Logo'
         w={['80%', '80%', '55%', '50%']}
+        mt={['6', '6', '0', '0']}
         alignSelf={['center', 'center', 'normal']}
       />
     </Flex>

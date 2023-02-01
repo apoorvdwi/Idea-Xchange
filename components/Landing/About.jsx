@@ -28,7 +28,7 @@ const About = ({ aboutRef }) => (
       <Box
         color='brand.200'
         w={['80%', '80%', '60%', '60%', '40%']}
-        textAlign='center'
+        textAlign='justify'
         mb='2'
         fontSize={['sm', 'md', 'lg']}
       >
