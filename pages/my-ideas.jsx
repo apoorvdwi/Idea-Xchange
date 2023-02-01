@@ -7,9 +7,9 @@ import FiltersContainer from '../components/Explore/FiltersContainer';
 import IdeaContainer from '../components/Explore/IdeaContainer';
 import { useGlobalContext } from '../context';
 
-const Explore = () => {
+const MyIdeas = () => {
   const { user, databases } = useGlobalContext();
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [filters, setFilters] = useState({
     sort: 'Latest',
     category: 'All',
@@ -61,10 +61,10 @@ const Explore = () => {
       .catch((err) => console.log(err));
   }, [databases, filters, user]);
 
-  return data && !loading ? (
+  return !loading ? (
     <Flex justifyContent='left' position='relative' margin='auto' width='75%'>
       <FiltersContainer filters={filters} setFilters={setFilters} />
-      {data.length > 0 ? (
+      {data && data.length > 0 ? (
         <Box marginLeft='auto' width='73.8%'>
           {data.map((item, index) => (
             <IdeaContainer {...item} key={item.id} noShow />
@@ -97,4 +97,4 @@ const Explore = () => {
   );
 };
 
-export default Explore;
+export default MyIdeas;

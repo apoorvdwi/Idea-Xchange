@@ -108,10 +108,10 @@ const Explore = () => {
       .catch((err) => console.log(err));
   }, [databases, filters]);
 
-  return data && !loading ? (
+  return !loading ? (
     <Flex justifyContent='left' position='relative' margin='auto' width='75%'>
       <FiltersContainer filters={filters} setFilters={setFilters} />
-      {data.length > 0 ? (
+      {data && data.length > 0 ? (
         <Box marginLeft='auto' width='73.8%'>
           {data.length > 0 ? (
             data.map((item, index) => (
