@@ -58,7 +58,7 @@ const About = ({ aboutRef }) => (
         <Circle size={['3', '3', '4']} bgColor='brand.100' mx='1' />
       </Flex>
       <Image
-        src='/images/landingImage.png'
+        src='/images/dashboard.png'
         alt='Sample Dashboard'
         borderRadius='10'
         boxShadow='md'

@@ -90,7 +90,7 @@ const NewPost = () => {
 
       setLoading(false);
       setIdea('');
-      setCategory({ label: 'All', value: 'All' });
+      setCategory({ label: 'Tech', value: 'Tech' });
 
       toast({
         id: 'Idea added successfully',
