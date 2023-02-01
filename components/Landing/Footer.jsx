@@ -1,11 +1,5 @@
 import { Flex } from '@chakra-ui/react';
-import {
-  FaEnvelope,
-  FaFacebookF,
-  FaInstagram,
-  FaLinkedin,
-  FaYoutube,
-} from 'react-icons/fa';
+import { FaEnvelope, FaGithub, FaLinkedin, FaTwitter } from 'react-icons/fa';
 
 const Footer = ({ footerRef }) => {
   return (
@@ -20,6 +14,7 @@ const Footer = ({ footerRef }) => {
     >
       <Flex
         alignItems='center'
+        justifyContent='center'
         w='100%'
         px={['7', '10', '16']}
         py={['6', '8', '10']}
@@ -44,43 +39,34 @@ const Footer = ({ footerRef }) => {
             justifyContent='space-between'
             w={['100%', '70%', '60%', '45%', '30%']}
           >
-            <FaFacebookF size={20} style={{ cursor: 'pointer' }} />
-            <FaEnvelope size={20} style={{ cursor: 'pointer' }} />
-            <FaInstagram size={20} style={{ cursor: 'pointer' }} />
-            <FaLinkedin size={20} style={{ cursor: 'pointer' }} />
-            <FaYoutube size={20} style={{ cursor: 'pointer' }} />
-          </Flex>
-        </Flex>
-        <Flex
-          w='50%'
-          flexDir='column'
-          justifyContent='space-between'
-          alignItems='center'
-          color='brand.100'
-        >
-          <Flex
-            my='1'
-            _hover={{ borderBottom: '1px solid #EDDAFD', cursor: 'pointer' }}
-          >
-            About
-          </Flex>
-          <Flex
-            my='1'
-            _hover={{ borderBottom: '1px solid #EDDAFD', cursor: 'pointer' }}
-          >
-            Terms
-          </Flex>
-          <Flex
-            my='1'
-            _hover={{ borderBottom: '1px solid #EDDAFD', cursor: 'pointer' }}
-          >
-            Policy
-          </Flex>
-          <Flex
-            my='1'
-            _hover={{ borderBottom: '1px solid #EDDAFD', cursor: 'pointer' }}
-          >
-            Request a demo
+            <a
+              href='mailto:apoorvd14@gmail.com'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FaEnvelope size={20} style={{ cursor: 'pointer' }} />{' '}
+            </a>
+            <a
+              href='https://github.com/apoorvdwi/Idea-Xchange'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FaGithub size={20} style={{ cursor: 'pointer' }} />
+            </a>
+            <a
+              href='https://linkedin.com/in/apoorvdwi'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FaLinkedin size={20} style={{ cursor: 'pointer' }} />
+            </a>
+            <a
+              href='https://twitter.com/Apoorvdwi'
+              target='_blank'
+              rel='noreferrer'
+            >
+              <FaTwitter size={20} style={{ cursor: 'pointer' }} />
+            </a>
           </Flex>
         </Flex>
       </Flex>
@@ -91,7 +77,15 @@ const Footer = ({ footerRef }) => {
         p='2'
         justifyContent='center'
       >
-        Copyright © 2022 | Idea Xchange
+        Made with ❤️ by&nbsp;
+        <a
+          style={{ fontWeight: '500', color: '#0B0014' }}
+          href='https://apoorvdwivedi.live/'
+          target='_blank'
+          rel='noreferrer'
+        >
+          Apoorv Dwivedi
+        </a>
       </Flex>
     </Flex>
   );
