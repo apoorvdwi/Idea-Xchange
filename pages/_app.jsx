@@ -1,6 +1,7 @@
 import '../styles/globals.scss';
 
 import { ChakraProvider } from '@chakra-ui/react';
+import { Analytics } from '@vercel/analytics/react';
 import Head from 'next/head';
 
 import Navbar from '../components/Navbar';
@@ -17,6 +18,7 @@ const MyApp = ({ Component, pageProps }) => {
         <ChakraProvider theme={theme}>
           <Navbar />
           <Component {...pageProps} />
+          <Analytics />
         </ChakraProvider>
       </GlobalProvider>
     </>
