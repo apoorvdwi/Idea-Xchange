@@ -1,36 +1,71 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+![IdeaXchange](https://socialify.git.ci/apoorvdwi/Idea-Xchange/image?description=1&descriptionEditable=Finding%20and%20Sharing%20Ideas%20Simplified.&font=Inter&language=1&name=1&owner=1&pattern=Plus&theme=Light)
 
-## Getting Started
+<p align="center">
+<img src="https://img.shields.io/github/license/apoorvdwi/EasyCall" />
+<img src="https://img.shields.io/badge/Author-apoorvdwi-yellow" />
+<img src="https://img.shields.io/badge/code%20style-airbnb-blue" />
+</p>
 
-First, run the development server:
+## 💥 Introduction
 
-```bash
-npm run dev
-# or
-yarn dev
+Idea Exchange is a platform for people who have trouble finding ideas for their side projects or are finding a buisness problem to solve and build their startup. Alternatively, people can post their ideas/problem statements and let other users to interact with the idea in form of comments, upvotes, downvotes and if they would like to pay for the product around that problem/idea statement.
+
+## 🛠️ Local development
+
+That's pretty easy. To ensure that you are able to install everything properly, we would recommend you to have <b>Git</b>, <b>NPM</b> and <b>Node.js</b> installed.
+
+We will first start with setting up the Local Project Environment:
+
+```sh
+git clone git@github.com:apoorvdwi/Idea-Xchange.git
+cd Idea-Xchange/appwrite
+docker-compose up -d --renew-anon-volumes
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create a account in the appwrite console and create a project inside it.
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. From Authentication, enable the google authentication.
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+2. Create a database with 2 collections, Ideas and Discussions.
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+Discussions Collection contains 2 fields:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+| column name | type   | required | array |
+| ----------- | ------ | -------- | ----- |
+| ideaId      | string | true     | false |
+| comments    | string | false    | true  |
 
-## Learn More
+Ideas Collection contains 9 fields:
 
-To learn more about Next.js, take a look at the following resources:
+| column name  | type    | required | array | default value |
+| ------------ | ------- | -------- | ----- | :-----------: |
+| title        | string  | true     | false |       -       |
+| discussionId | string  | true     | false |       -       |
+| userId       | string  | true     | false |       -       |
+| category     | string  | true     | false |       -       |
+| upvotes      | string  | false    | true  |       -       |
+| pay          | string  | false    | true  |       -       |
+| username     | string  | true     | false |       -       |
+| likesCount   | integer | false    | false |       0       |
+| payCount     | integer | false    | false |       0       |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Copy the .env.example content to .env.local and update the environment variables with corresponding Ids from appwrite console
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Once you run the Commands and get environment variables and everything fine, we are all set to run the app ✔️
 
-## Deploy on Vercel
+On the root level run the following command:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+```sh
+cd Idea-Xchange
+npm run dev
+```
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## 🥁 Features
+
+- IdeaXchange provides login through Google.
+- You can browse through the ideas of different people and interact with them via reactions and comments
+- You can post your idea and let people comment and react on it.
+
+## 📜 LICENSE
+
+[AGPL 3.0 License](https://github.com/apoorvdwi/EasyCall/blob/main/LICENSE)
