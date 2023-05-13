@@ -29,5 +29,7 @@ yarn-error.log*
 .env*.local
 .env
 
+!appwrite/.env
+
 # vercel
 .vercel
