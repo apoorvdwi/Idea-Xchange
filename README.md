@@ -49,6 +49,10 @@ Ideas Collection contains 9 fields:
 | likesCount   | integer | false    | false |       0       |
 | payCount     | integer | false    | false |       0       |
 
+Add the following permission settings in both the collections
+
+![permissions](https://github.com/apoorvdwi/Idea-Xchange/assets/56197821/e3c0b42a-4c2d-403e-9674-bfaceee8862d)
+
 Copy the .env.example content to .env.local and update the environment variables with corresponding Ids from appwrite console
 
 Once you run the Commands and get environment variables and everything fine, we are all set to run the app ✔️
